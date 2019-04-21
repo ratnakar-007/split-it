@@ -28,9 +28,9 @@ const data = [
 const SettleStatus = (props) => {
     const settle = props.item.settleData;
     switch(settle.status) {
-        case 0 : return <span>Settled Up!</span> ;
-        case 1 : return <span>Owe : {settle.owe}</span>;
-        case -1 : return <span>Owe : {settle.owed}</span>;
+        case 0 : return <span> Settled Up!</span> ;
+        case 1 : return <span> Owe : {settle.owe}</span>;
+        case -1 : return <span> Owed : {settle.owed}</span>;
         default: return <sapn></sapn>
     };
 };
@@ -39,9 +39,10 @@ const SettleStatus = (props) => {
 const ListItem = (props) => {
     const item  = props.item;
     return (
-     <span>
-          <span>{item.name}</span>
-          <div><SettleStatus item={item}></SettleStatus></div>
+     <span align = 'center'>
+          <div className='btn btn-floating pink lighten-1'>{item.name[0]}</div>  
+          <span> {item.name}</span>
+          <span><SettleStatus item={item}></SettleStatus></span>
      </span>
     )
   }
